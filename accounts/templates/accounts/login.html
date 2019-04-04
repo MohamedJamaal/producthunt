@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<br>
+<header>
+  <h1 class="text-center ">Sign Up</h1>
+
+</header>
+<br>
+<style media="screen">
+  label{
+  margin:0 0 3px 0;
+  padding:0px;
+	display:block;
+	font-weight: bold;
+}
+</style>
+
+{% if error %}
+{{error}} <br><br>
+{% endif %}
+<div class="container">
+  <form class="" action="{% url 'login'%}" method="POST">
+
+    {% csrf_token %}
+
+  <br>
+
+  <label class="block">
+  Username :
+  </label><br>
+  <input type="text" name="username" value=""><br><br>
+  <label for="">Password :</label><br>
+  <input type="password" name="password" value=""><br><br>
+
+  <input class="btn btn-primary" type="submit" name="submit" value="Login">
+
+  </form>
+</div>
+
+{% endblock %}
