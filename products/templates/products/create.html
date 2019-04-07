@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<br>
+<header>
+  <h1 class="text-center ">Create Product</h1>
+
+</header>
+<br>
+<style media="screen">
+  label{
+  margin:0 0 3px 0;
+  padding:0px;
+	display:block;
+	font-weight: bold;
+}
+</style>
+
+{% if error %}
+{{error}} <br><br>
+{% endif %}
+<div class="container">
+  <form class="" action="{% url 'create'%}" enctype="multipart/form-data"  method="POST">
+
+    {% csrf_token %}
+
+  <br>
+
+  <label class="block">
+  Title :
+  </label>
+  <input type="text" name="title" value=""><br><br>
+  <label for="">Body :</label>
+  <input type="textarea" name="body" value=""><br><br>
+  <label class="block">
+  URL :
+  </label>
+  <input type="text" name="url" value=""><br><br>
+  <label class="block">
+  Icon :
+  </label>
+  <input type="file" name="icon" value=""><br><br>
+  <label class="block">
+  Image :
+  </label>
+  <input type="file" name="image" value=""><br><br>
+  <input class="btn btn-primary" type="submit" name="create" value="Create Product">
+
+  </form>
+</div>
+
+{% endblock %}
